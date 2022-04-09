@@ -1,10 +1,1 @@
-- 👋 Hi, I’m @Karmahen
-- 👀 I’m interested in learning more about data analytics.
-- 🌱 I’m currently learning SQL.
-- 💞️ I’m looking to connect with others.
-- 📫 How to reach me dotboo75@gmail.com
-
-<!---
-Karmahen/Karmahen is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+Welcome to my SQL portfolio! This code repository contains examples of SQL I've written. Feel free to take a look and reach out if you have any questions. I can be reached at jaimeparker10@gmail.com.
