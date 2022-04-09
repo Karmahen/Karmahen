@@ -1,0 +1,24 @@
+/** Produce:
+Avocados (80)
+Cantaloupe (100)
+Apples (75)
+Grapefruit (20)
+Bananas (50)
+Cucumbers (70)
+
+**/
+
+CREATE TABLE produce (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, price INTEGER, sold INTEGER);
+
+INSERT INTO produce VALUES (1, "Avocados", 80, 2, 3);
+INSERT INTO produce VALUES (2, "Cantaloupe", 100, 3, 5);
+INSERT INTO produce VALUES (3, "Apples", 75, 1, 1);
+INSERT INTO produce VALUES (4, "Grapefruit", 20, 2, 2);
+INSERT INTO produce VALUES (5, "Bananas", 50, 1, 4);
+INSERT INTO produce VALUES (6, "Cucumbers",70, 1, 5);
+SELECT * FROM produce;
+
+SELECT * FROM produce
+ORDER BY price DESC;
+
+SELECT name, (price*sold) AS total_sales FROM produce;
