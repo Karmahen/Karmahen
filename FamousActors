@@ -1,0 +1,69 @@
+/** actors:
+Christoph Waltz
+Sam Rockwell
+Bo Burnham
+Kumail Nanjiani
+Jennifer Aniston
+Emma Stone
+Charlize Theron
+Dan Levy
+Will Arnett
+Reese Witherspoon
+Mindy Kaling
+Steve Carell
+Denzel Washington
+Tina Fey
+Donald Glover
+**/
+
+CREATE TABLE actors(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, show TEXT, birth_year INTEGER);
+
+INSERT INTO actors(name, show, birth_year) VALUES("Christoph Walz", "Django Unchained", 1956);
+INSERT INTO actors(name, show, birth_year) VALUES("Sam Rockwall", "Three Billboards", 1968);
+INSERT INTO actors(name, show, birth_year) VALUES("Bo Burnham", "Inside", 1990);
+INSERT INTO actors(name, show, birth_year) VALUES("Kumail Nanjiani", "The Big Sick", 1978);
+INSERT INTO actors(name, show, birth_year) VALUES("Jennifer Aniston", "Friends", 1969);
+INSERT INTO actors(name, show, birth_year) VALUES("Emma Stone", "Crazy Stupid Love", 1988);
+INSERT INTO actors(name, show, birth_year) VALUES("Charlize Theron","Mad Max", 1975);
+INSERT INTO actors(name, show, birth_year) VALUES("Dan Levy", "Schitt's Creek", 1983);
+INSERT INTO actors(name, show, birth_year) VALUES("Will Arnett", "BoJack Horseman", 1970);
+INSERT INTO actors(name, show, birth_year) VALUES("Reese Witherspoon", "A Wrinkle in Time", 1976);
+INSERT INTO actors(name, show, birth_year) VALUES("Mindy Kaling", "The Office", 1979);
+INSERT INTO actors(name, show, birth_year) VALUES("Steve Carell", "The Office", 1962);
+INSERT INTO actors(name, show, birth_year) VALUES("Denzel Washington", "MacBeth", 1954);
+INSERT INTO actors(name, show, birth_year) VALUES("Tina Fey", "30 Rock", 1970);
+INSERT INTO actors(name, show, birth_year) VALUES("Donald Glover", "Atlanta", 1983);
+
+CREATE TABLE hobbies(id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, name TEXT);
+INSERT INTO hobbies(person_id, name) VALUES(1, "hiking"); 
+INSERT INTO hobbies(person_id, name) VALUES(2, "drawing");
+INSERT INTO hobbies(person_id, name) VALUES(3, "singing"); 
+INSERT INTO hobbies(person_id, name) VALUES(4, "writing"); 
+INSERT INTO hobbies(person_id, name) VALUES(5, "yoga"); 
+INSERT INTO hobbies(person_id, name) VALUES(6, "dancing"); 
+INSERT INTO hobbies(person_id, name) VALUES(7, "writing"); 
+INSERT INTO hobbies(person_id, name) VALUES(8, "singing"); 
+INSERT INTO hobbies(person_id, name) VALUES(9, "painting"); 
+INSERT INTO hobbies(person_id, name) VALUES(10, "reading"); 
+INSERT INTO hobbies(person_id, name) VALUES(11, "writing"); 
+INSERT INTO hobbies(person_id, name) VALUES(12, "swimming"); 
+INSERT INTO hobbies(person_id, name) VALUES(13, "golf");
+INSERT INTO hobbies(person_id, name) VALUES(14, "writing");
+INSERT INTO hobbies(person_id, name) VALUES(15, "singing");
+SELECT * FROM actors;
+SELECT actors.name, hobbies.name AS hobby
+FROM actors
+JOIN hobbies
+ON actors.id = hobbies.person_id;
+
+SELECT actors.name, hobbies.name AS hobby
+FROM actors
+JOIN hobbies
+ON actors.id = hobbies.person_id
+WHERE hobby = "writing";
+
+SELECT actors.name, hobbies.name AS hobby
+FROM actors
+JOIN hobbies
+ON actors.id = hobbies.person_id
+WHERE hobby = "singing";
