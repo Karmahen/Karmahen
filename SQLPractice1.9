@@ -1,26 +1,34 @@
 #In this SQL, I'm querying a database with multiple tables in it to quantify statistics about customer and order data.
 
+--##1. How many locations are there in New York that sold more than 1 product in January?
+
 SELECT count(distinct location)
 FROM BIT_DB.JanSales
 WHERE location LIKE '%NY%' 
 AND quantity>1;
 
+--##2. How many of each type of headphone were sold in February?
+
 SELECT sum(Quantity) as quantity
 FROM BIT_DB.FebSales
-WHERE product LIKE '%headphones'
+WHERE product LIKE '%headphones%'
 Group By product;
+
+--##3. What was the average amount spent per account in February?
 
 SELECT AVG(quantity*price)
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
 ON Feb.orderID=cust.order_id;
 
+--##4. What was the average quantity of products purchased per account in February?
+
 SELECT sum(quantity)/count(cust.acctnum)
 FROM BIT_DB.FebSales Feb
 LEFT JOIN BIT_DB.customers cust
 ON Feb.orderid=cust.order_id;
 
-
+--##5. Which product brought in the most revenue in January and how much revenue did it bring in total?
 SELECT product, SUM(quantity*price)
 FROM BIT_DB.JanSales
 ORDER BY SUM(quantity*price) DESC
