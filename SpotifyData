@@ -1,0 +1,51 @@
+## First I pulled a dataset from Kaggle. 
+## Then, I created a table in SQLite.
+## Next, I imported the table values.
+## Then, I queried the table using SQL.
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness text NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL 
+)
+
+--1. What are the top 10 most popular songs in this dataset?
+SELECT track_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC LIMIT 10;
+
+--2. How many times are the artists featured in this dataset?
+SELECT artist_name, COUNT(artist_name)
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name;
+
+--3. What songs are the top rated songs for danceability?
+SELECT track_name, danceability
+FROM BIT_DB.Spotifydata
+ORDER BY danceability DESC LIMIT 10;
+
+--4. Which songs have greater than 0.75 danceability AND greater than 0.75 energy?
+SELECT track_name, danceability, energy
+FROM BIT_DB.Spotifydata
+WHERE danceability > 0.75 AND energy > 0.75
+ORDER BY track_name;
+
+--5. Which song has the longest duration?
+SELECT track_name, duration_ms
+FROM BIT_DB.Spotifydata
+ORDER BY duration_ms DESC LIMIT 1;
