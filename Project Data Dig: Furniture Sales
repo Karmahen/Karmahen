@@ -3,10 +3,12 @@ Sales from an online furniture store
 Collected by: https://www.khanacademy.org/profile/charlesb2000/
 */
 
-SELECT * FROM sales LIMIT 20;
+SELECT * FROM sales LIMIT 10;
 
 SELECT product, MIN(price) FROM sales;
+
 SELECT product, MAX(price) FROM sales;
+
 SELECT AVG(price) FROM sales;
 
 SELECT product, SUM(price) AS total_sales_amount FROM sales
@@ -18,6 +20,23 @@ SELECT COUNT(ID) FROM sales;
 SELECT count(ID), product, country
 FROM sales
 GROUP BY product,country;
+
+SELECT product, SUM(price) AS total_sales_amount FROM sales
+GROUP BY product
+HAVING total_sales_amount > 20000;
+
+SELECT COUNT(ID) FROM sales
+WHERE country = "United states"; 
+
+SELECT COUNT(ID) FROM sales
+WHERE country = "United states" AND product = "Bed";
+
+SELECT country, SUM(price) FROM sales
+GROUP BY country
+HAVING sum(price) >1000;
+
+
+
 
 
 
