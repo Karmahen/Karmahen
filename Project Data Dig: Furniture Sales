@@ -1,36 +1,44 @@
 /*
-Sales from an online furniture store
+In this SQL I'm querying a database to quantify statistics about sales data from an online furniture store.
 Collected by: https://www.khanacademy.org/profile/charlesb2000/
 */
 
-SELECT * FROM sales LIMIT 10;
-
+#1. Find the product with the minimum price.
 SELECT product, MIN(price) FROM sales;
 
+#2. What is the product with the highest price?
 SELECT product, MAX(price) FROM sales;
 
+#3. What is the average price of sales items?
 SELECT AVG(price) FROM sales;
 
+#4. What are the total sales for each product?
 SELECT product, SUM(price) AS total_sales_amount FROM sales
 GROUP BY product
 HAVING total_sales_amount > 20000;
 
+#5. What is the total number of sales?
 SELECT COUNT(ID) FROM sales;
 
+#6. How many sales of each product were there by country?
 SELECT count(ID), product, country
 FROM sales
 GROUP BY product,country;
 
+#7. Which products had total sales of more than 20000?
 SELECT product, SUM(price) AS total_sales_amount FROM sales
 GROUP BY product
 HAVING total_sales_amount > 20000;
 
+#8. How many sales in the United States?
 SELECT COUNT(ID) FROM sales
 WHERE country = "United states"; 
 
+#9. How many beds were sold in the United States?
 SELECT COUNT(ID) FROM sales
 WHERE country = "United states" AND product = "Bed";
 
+#10. Which countries had sales that were more than $1000?
 SELECT country, SUM(price) FROM sales
 GROUP BY country
 HAVING sum(price) >1000;
